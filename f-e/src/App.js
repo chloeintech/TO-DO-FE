@@ -25,7 +25,7 @@ const App = () => {
             <Route path="./components/logout" element={ <LoggedOut />} />
           </Routes>
         </BrowserRouter>
-      
+      br
     </div>
  ); 
 }; 
