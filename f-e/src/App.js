@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import LoggedIn from './components/loggedIn/loggedIn';
 import LoggedOut from './components/loggedOut/loggedOut';
 
-
 const App = () => {
 
   const [user, setUser] = useState()
@@ -25,7 +24,7 @@ const App = () => {
             <Route path="./components/logout" element={ <LoggedOut />} />
           </Routes>
         </BrowserRouter>
-      br
+      
     </div>
  ); 
 }; 
