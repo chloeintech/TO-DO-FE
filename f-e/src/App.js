@@ -3,7 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { getCookie } from './common';
 import { useEffect, useState } from "react";
 import LoggedIn from './components/loggedIn/loggedIn';
-import LoggedOut from './components/loggedOut/loggedOut';
+import Loginsignin from './components/loginInorSignIn/loginsignin';
+import Footer from './components/footer';
+import Header from './components/header';
 
 const App = () => {
 
@@ -16,13 +18,14 @@ const App = () => {
   return (
 
     <div>
-      <LoggedIn  />
       
       <BrowserRouter>
+      <Header  />
+      <Loginsignin />
           <Routes>
-            <Route path="./components/" element={ <LoggedIn />} />
-            <Route path="./components/logout" element={ <LoggedOut />} />
+            <Route path="/to-do-app" element={ <LoggedIn />} />
           </Routes>
+      <Footer />
         </BrowserRouter>
       
     </div>

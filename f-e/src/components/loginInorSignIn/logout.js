@@ -1,20 +1,23 @@
-import React from "react"
-import { getCookie} from "../../common"
+import { logOutUser } from '../../utils';
+// import { useState } from 'react';
 
-const LogOut = () => {
+    const Logout = (props) => {
+        props.e.preventDefault();
 
-    const handleLogout = () => {
-    getCookie.delete("jwt_token")
-    window.location.href = "/loggedout";
+        const logout = async () => {
+        await logOutUser
+        setIsLoggedin(false)
+        window.location.href = "/";
+        }
+     
+    };
 
-  };
-
-  return (
+return (
     <div>
-      <h1>Logout</h1>
-      <button onClick={handleLogout}>Logout</button>
+        <button onClick={ () => {logout}}>logout user</button>
     </div>
-  );
-};
+    
 
-export default LogOut;
+)
+
+export default Logout;

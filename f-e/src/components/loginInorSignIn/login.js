@@ -1,46 +1,69 @@
-import React from "react";
-import { useState } from "react";
+import { loginUser } from '../../utils';
 import './loginsignin.css'
-
-const Login = ({ newUser }) => {
-
-    const [username, setUsername] = useState()
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+import { useState } from 'react';
+import { writeCookie } from '../../common';
 
 
-    const submitHandler = async (e) => {
-        e.preventDefault()
-        console.log(username)
-        console.log(email)
-        console.log(password)
+const Login = ({newUser}) => {
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [isLoggedin, setIsLoggedin] = useState(false);
+ 
+    const login = async (e) => {
+        e.preventDefault();
+        console.log(username, email, password);
 
-        await newUser(username, email, password, newUser)
-    }
+        await loginUser(username, email, password, newUser)
+       
+        setIsLoggedin(true);
+        window.location.href = "/to-do-app";
+    };
 
 
+ 
     return (
-        <div className="login-form">
-
-            
-            <h1>Login</h1>
-            <form onSubmit={submitHandler}>
-                <label>Username:
-                    <input onChange={(e) => setUsername(e.target.value)}></input>
-                </label>
-                <br></br>
-                <label>Email:
-                    <input onChange={(e) => setEmail(e.target.value)}></input>
-                </label>
-                <br></br>
-                <label>Password:
-                    <input onChange={(e) => setPassword(e.target.value)}></input>
-                </label>
-                <br></br>
-                <button type="submit">Login</button>
-            </form>
-        </div>
-    ) 
-} 
-
+        <>
+            <div>
+                <h1>Login </h1>
+                {!isLoggedin ? (
+                    <>
+                        <form action="">
+                            <input
+                                type="text"
+                                onChange={(e) => setUsername(e.target.value)}
+                                value={username}
+                                placeholder="Username"
+                            />
+                            <br  />
+                            <input
+                                type="email"
+                                onChange={(e) => setEmail(e.target.value)}
+                                value={email}
+                                placeholder="Email"
+                            />
+                            <br  />
+                            <input
+                                type="password"
+                                onChange={(e) => setPassword(e.target.value)}
+                                value={password}
+                                placeholder="Password"
+                            />
+                            <br  />
+                            <button type="submit" onClick={login}>
+                                GO
+                            </button>
+                        </form>
+                    </>
+                ) : (
+                    <>
+                        <h1>User is logged in</h1>
+                        <Logout e={e} />                     
+                    </>
+                )}
+            </div>
+        </>
+    );
+}
+ 
 export default Login;

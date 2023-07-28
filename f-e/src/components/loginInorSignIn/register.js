@@ -3,7 +3,6 @@ import { useState } from "react"
 import { registerUser } from "../../utils"
 
 const Register = () => {
-
     const [username, setUsername] = useState()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
@@ -25,9 +24,9 @@ const Register = () => {
         <div>
             <h1>Register:</h1>
             <form onSubmit={submitHandler}>
-                <label>Username:
+                <placeholder>Username:
                     <input onChange={(e) => setUsername(e.target.value)} required></input>
-                </label>
+                </placeholder>
                 <br></br>
                 <label>Email:
                     <input onChange={(e) => setEmail(e.target.value)} required></input>

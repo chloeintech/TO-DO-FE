@@ -8,10 +8,7 @@ const LoggedIn = () => {
     return (
 
         <div>
-            <Header />
-            <Loginsignin />
             <TodoList/>
-            <Footer />
         </div>
 
     );

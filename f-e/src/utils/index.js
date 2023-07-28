@@ -44,3 +44,4 @@ export const loginUser = async (username, email, password, newUser) => {
         console.log(error)
     }
 };
+
