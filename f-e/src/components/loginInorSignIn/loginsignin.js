@@ -3,13 +3,13 @@ import Login from "./login";
 import "./loginsignin.css";
 
 
-const Loginsignin = () => {
+const Loginsignin = (props) => {
 
     return (
       <div className="lisi">
 
       <Register  />
-      <Login  />
+      <Login cookie={props.cookie} />
   
      
       </div>

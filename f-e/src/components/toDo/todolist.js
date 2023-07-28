@@ -36,7 +36,6 @@ const TodoList = () => {
   const handleSort = () => {
     setTasks((prevTasks) =>
       [...prevTasks].sort((a, b) => {
-        // Sort by due date, assuming dueDate is in 'YYYY-MM-DD' format
         return new Date(a.dueDate) - new Date(b.dueDate);
       })
     );

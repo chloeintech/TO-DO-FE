@@ -5,12 +5,12 @@ import { logOutUser } from '../../utils';
         props.e.preventDefault();
 
         const logout = async () => {
-        await logOutUser
-        setIsLoggedin(false)
+        localStorage.removeItem(props.cookie)
+        props.setIsLoggedin(false)
         window.location.href = "/";
         }
      
-    };
+    
 
 return (
     <div>
@@ -19,5 +19,5 @@ return (
     
 
 )
-
+    };
 export default Logout;

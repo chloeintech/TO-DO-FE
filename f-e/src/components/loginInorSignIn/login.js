@@ -2,9 +2,11 @@ import { loginUser } from '../../utils';
 import './loginsignin.css'
 import { useState } from 'react';
 import { writeCookie } from '../../common';
+import {Logout} from './logout'
 
 
-const Login = ({newUser}) => {
+
+const Login = ({newUser}, props) => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -58,7 +60,7 @@ const Login = ({newUser}) => {
                 ) : (
                     <>
                         <h1>User is logged in</h1>
-                        <Logout e={e} />                     
+                        <Logout cookie={props.cookie} setIsLoggedin={setIsLoggedin} />                     
                     </>
                 )}
             </div>

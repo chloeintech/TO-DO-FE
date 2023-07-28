@@ -10,9 +10,11 @@ import Header from './components/header';
 const App = () => {
 
   const [user, setUser] = useState()
+  const [cookie, setCookie] = useState()
   useEffect (() => {
     let cookie = getCookie("jwt_token")
     console.log("******cookie =", cookie)
+    setCookie(cookie)
   })
 
   return (
@@ -21,7 +23,7 @@ const App = () => {
       
       <BrowserRouter>
       <Header  />
-      <Loginsignin />
+      <Loginsignin cookie={cookie}/>
           <Routes>
             <Route path="/to-do-app" element={ <LoggedIn />} />
           </Routes>
